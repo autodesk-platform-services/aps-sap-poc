@@ -1,0 +1,29 @@
+ul#procurement-tabs.nav.nav-tabs.mb-3.nav-fill(role='tablist')
+  li.nav-item
+    a#procurement-suppliers-tab.nav-link.active(data-toggle='tab' href='#procurement-suppliers' role='tab' aria-controls='procurement-suppliers' aria-selected='false') Suppliers
+#procurement-tabs-content.tab-content
+  #procurement-suppliers.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='procurement-suppliers-tab')
+    h5 Suppliers
+    table#suppliers.table.table-hover.table-sm
+      thead
+        tr
+          th(scope='col') Component
+          th(scope='col') Supplier
+          th(scope='col') Avg. Cost
+          th(scope='col') Stock Qnt.
+          th(scope='col') Proc. Time
+      tbody
+    nav
+      ul.pagination.justify-content-center
+        li.page-item
+          a.page-link(href='#' aria-label='Previous')
+            span(aria-hidden='true') &laquo;
+        li.page-item.active
+          a.page-link(href='#') 1
+        li.page-item
+          a.page-link(href='#') 2
+        li.page-item
+          a.page-link(href='#') 3
+        li.page-item
+          a.page-link(href='#' aria-label='Next')
+            span(aria-hidden='true') &raquo;

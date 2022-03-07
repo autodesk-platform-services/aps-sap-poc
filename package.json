@@ -1,0 +1,22 @@
+{
+  "name": "forge-sap-poc",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "autodesk",
+    "forge",
+    "sap"
+  ],
+  "author": "Petr Broz <petr.broz@autodesk.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@sap/hana-client": "^2.11.20",
+    "express": "^4.17.3",
+    "forge-server-utils": "^8.3.5",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  }
+}
