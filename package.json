@@ -15,8 +15,6 @@
   "dependencies": {
     "@sap/hana-client": "^2.11.20",
     "express": "^4.17.3",
-    "forge-server-utils": "^8.3.5",
-    "morgan": "^1.10.0",
-    "pug": "^3.0.2"
+    "forge-server-utils": "^8.3.5"
   }
 }

@@ -22,13 +22,13 @@ export function initProcurementTab(mainViewer) {
         const { list, currPage, pageSize } = suppliers;
         $tbody.empty();
         for (let i = currPage * pageSize; i < (currPage + 1) * pageSize && i < list.length; i++) {
-            const { partNumber, componentName, procurementTime, supplierId, averageCost, stockQuantity } = list[i];
+            const { partNumber, componentName, procurementTime, supplierId, supplierName, averageCost, stockQuantity } = list[i];
             const $row = $(`
                 <tr>
                     <th scope="row">
                         <a href="#" class="part-link">${componentName}</a>
                     </th>
-                    <td>${supplierId}</td>
+                    <td>${supplierName}</td>
                     <td>$${averageCost}</td>
                     <td>${stockQuantity}</td>
                     <td>${procurementTime}</td>

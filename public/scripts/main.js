@@ -9,12 +9,14 @@ const options = {
 	}
 };
 
+const config = fetch('/config.json').then(resp => resp.json());
 let mainViewer = null;
 
-Autodesk.Viewing.Initializer(options, () => {
+Autodesk.Viewing.Initializer(options, async () => {
     mainViewer = new Autodesk.Viewing.Private.GuiViewer3D(document.getElementById('viewer'), { extensions: [] });
     mainViewer.start();
-    loadModel(DEMO_URN /* set by the server-side template engine */);
+    const { FORGE_MODEL_URN } = await config;
+    loadModel(FORGE_MODEL_URN);
 });
 
 function loadModel(urn) {

@@ -1,5 +1,5 @@
 const hana = require('@sap/hana-client');
-const { SAP_HANA_SERVER, SAP_HANA_PORT, SAP_HANA_SPACE, SAP_HANA_USERNAME, SAP_HANA_PASSWORD } = require('../config.js');
+const { SAP_HANA_SERVER, SAP_HANA_PORT, SAP_HANA_SPACE, SAP_HANA_VIEW, SAP_HANA_USERNAME, SAP_HANA_PASSWORD } = require('../config.js');
 
 const options = {
     serverNode: `${SAP_HANA_SERVER}:${SAP_HANA_PORT}`,
@@ -31,9 +31,11 @@ function listSuppliers(componentName) {
     return new Promise(function (resolve, reject) {
         const client = hana.createConnection();
         client.connect(options);
-        const stmt = componentName
-            ? client.prepare(`SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data" WHERE "Component Name" = ?`)
-            : client.prepare(`SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data"`);
+        const stmt = client.prepare(
+            componentName
+            ? `SELECT * FROM ${SAP_HANA_SPACE}."${SAP_HANA_VIEW}" WHERE "Component_Name" = ?`
+            : `SELECT * FROM ${SAP_HANA_SPACE}."${SAP_HANA_VIEW}"`
+        );
         stmt.exec(componentName ? [componentName] : [], function (err, results) {
             stmt.drop();
             client.disconnect();
@@ -42,9 +44,10 @@ function listSuppliers(componentName) {
             } else {
                 resolve(results.map(result => ({
                     partNumber: result['Part Number'],
-                    componentName: result['Component Name'],
+                    componentName: result['Component_Name'],
                     procurementTime: result['Procurement Time'],
-                    supplierId: parseInt(result['Supplier']),
+                    supplierId: parseInt(result['PARTNERID']),
+                    supplierName: result['COMPANYNAME'],
                     averageCost: parseFloat(result['Average Cost']),
                     stockQuantity: parseInt(result['Stock Quantity in Units'])
                 })));
