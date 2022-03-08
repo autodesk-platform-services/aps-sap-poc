@@ -24,7 +24,7 @@ function loadModel(urn) {
             mainViewer.loadDocumentNode(doc, node)
                 .then(function () {
                     initProcurementTab(mainViewer);
-                    initViewer(mainViewer);
+                    resetViewerSettings(mainViewer);
                     resolve();
                 })
                 .catch(function (err) {
@@ -38,7 +38,7 @@ function loadModel(urn) {
     });
 }
 
-function initViewer(viewer) {
+function resetViewerSettings(viewer) {
     viewer.setQualityLevel(/* ambient shadows */ false, /* antialiasing */ true);
     viewer.setGroundShadow(true);
     viewer.setGroundReflection(false);
