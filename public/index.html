@@ -24,11 +24,14 @@
         <div id="sidebar">
             <ul class="nav nav-tabs mb-3 nav-fill" id="procurement-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="procurement-suppliers-tab" data-toggle="tab" href="#procurement-suppliers" role="tab" aria-controls="procurement-suppliers" aria-selected="false">Procurement</a>
+                    <a class="nav-link active" id="procurement-suppliers-tab" data-toggle="tab"
+                        href="#procurement-suppliers" role="tab" aria-controls="procurement-suppliers"
+                        aria-selected="false">Procurement</a>
                 </li>
             </ul>
             <div class="tab-content" id="procurement-tabs-content">
-                <div class="tab-pane fade show active" id="procurement-suppliers" role="tabpanel" aria-labelledby="procurement-suppliers-tab">
+                <div class="tab-pane fade show active" id="procurement-suppliers" role="tabpanel"
+                    aria-labelledby="procurement-suppliers-tab">
                     <h5>Suppliers</h5>
                     <table class="table table-hover table-sm" id="suppliers">
                         <thead>
@@ -59,6 +62,33 @@
                             </li>
                         </ul>
                     </nav>
+                    <h5>Shipping Address</h5>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputLat">Latitude</label>
+                                <input type="number" class="form-control" id="inputLat" value="50.0833" step="0.0001">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputLon">Longitude</label>
+                                <input type="number" class="form-control" id="inputLon" value="14.4667" step="0.0001">
+                            </div>
+                        </div>
+                    </form>
+                    <h5>Stock Levels & Carbon Footprint</h5>
+                    <table class="table table-hover table-sm" id="stock-levels">
+                        <thead>
+                            <tr>
+                                <th scope="col">Warehouse</th>
+                                <th scope="col">In Stock</th>
+                                <th scope="col">Distance</th>
+                                <th scope="col">Delivery</th>
+                                <th scope="col">C. Footprint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

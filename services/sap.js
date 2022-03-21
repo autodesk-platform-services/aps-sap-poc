@@ -1,5 +1,5 @@
 const hana = require('@sap/hana-client');
-const { SAP_HANA_SERVER, SAP_HANA_PORT, SAP_HANA_SPACE, SAP_HANA_VIEW, SAP_HANA_USERNAME, SAP_HANA_PASSWORD } = require('../config.js');
+const { SAP_HANA_SERVER, SAP_HANA_PORT, SAP_HANA_SPACE, SAP_HANA_USERNAME, SAP_HANA_PASSWORD } = require('../config.js');
 
 const options = {
     serverNode: `${SAP_HANA_SERVER}:${SAP_HANA_PORT}`,
@@ -33,8 +33,8 @@ function listSuppliers(componentName) {
         client.connect(options);
         const stmt = client.prepare(
             componentName
-            ? `SELECT * FROM ${SAP_HANA_SPACE}."${SAP_HANA_VIEW}" WHERE "Component_Name" = ?`
-            : `SELECT * FROM ${SAP_HANA_SPACE}."${SAP_HANA_VIEW}"`
+            ? `SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data" WHERE "Component_Name" = ?`
+            : `SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data"`
         );
         stmt.exec(componentName ? [componentName] : [], function (err, results) {
             stmt.drop();
@@ -56,6 +56,42 @@ function listSuppliers(componentName) {
     });
 }
 
+function listStockLevels(componentName) {
+    return new Promise(function (resolve, reject) {
+        const client = hana.createConnection();
+        client.connect(options);
+        const stmt = client.prepare(`SELECT * FROM ${SAP_HANA_SPACE}."Warehouse_Stock_Level_Analysis" WHERE "Part_Number" = ?`);
+        stmt.exec([componentName], function (err, results) {
+            stmt.drop();
+            client.disconnect();
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+}
+
+function listDeliveryOptions() {
+    return new Promise(function (resolve, reject) {
+        const client = hana.createConnection();
+        client.connect(options);
+        const stmt = client.prepare(`SELECT * FROM ${SAP_HANA_SPACE}."GHG_Co2_Factors_per_Shipment_T"`);
+        stmt.exec([], function (err, results) {
+            stmt.drop();
+            client.disconnect();
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+}
+
 module.exports = {
-    listSuppliers
+    listSuppliers,
+    listStockLevels,
+    listDeliveryOptions,
 };
