@@ -1,0 +1,19 @@
+body {
+    height: 100vh;
+    font-family: 'Artifakt Element';
+    line-height: 1.15;
+    background: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+input, select {
+    font-family: 'Artifakt Element';
+    font-size: 16px;
+    line-height: 1.15;
+    background: black;
+    color: white;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+}

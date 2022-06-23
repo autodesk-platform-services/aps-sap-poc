@@ -6,8 +6,10 @@ const { FORGE_MODEL_URN, PORT } = require('./config.js');
 
 let app = express();
 app.use(express.static(path.join(__dirname, 'wwwroot')));
-app.get('/config.json', (req, res) => { res.json({ FORGE_MODEL_URN }); });
-app.get('/api/auth/token', async function(req, res, next) {
+app.get('/config', function (req, res) {
+    res.json({ urn: FORGE_MODEL_URN });
+});
+app.get('/token', async function(req, res, next) {
     try {
         res.json(await getPublicToken());
     } catch(err) {

@@ -78,44 +78,6 @@ function getArticleDetail(partNumber) {
     });
 }
 
-// function listSuppliers(componentName) {
-//     return new Promise(function (resolve, reject) {
-//         const client = hana.createConnection();
-//         client.connect(options);
-//         const stmt = client.prepare(
-//             componentName
-//             ? `SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data" WHERE "Component_Name" = ?`
-//             : `SELECT * FROM ${SAP_HANA_SPACE}."Jet_Engine_Internal_SAP_Data"`
-//         );
-//         stmt.exec(componentName ? [componentName] : [], function (err, results) {
-//             stmt.drop();
-//             client.disconnect();
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 resolve(results);
-//             }
-//         });
-//     });
-// }
-
-// function listStockLevels(componentName) {
-//     return new Promise(function (resolve, reject) {
-//         const client = hana.createConnection();
-//         client.connect(options);
-//         const stmt = client.prepare(`SELECT * FROM ${SAP_HANA_SPACE}."Warehouse_Stock_Level_Analysis" WHERE "Part_Number" = ?`);
-//         stmt.exec([componentName], function (err, results) {
-//             stmt.drop();
-//             client.disconnect();
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 resolve(results);
-//             }
-//         });
-//     });
-// }
-
 function getDeliveryOptions() {
     return new Promise(function (resolve, reject) {
         const client = hana.createConnection();
@@ -137,7 +99,5 @@ module.exports = {
     getFacilities,
     getStockOverview,
     getArticleDetail,
-    getDeliveryOptions,
-    // listSuppliers,
-    // listStockLevels,
+    getDeliveryOptions
 };
