@@ -10,6 +10,7 @@
     "sap"
   ],
   "scripts": {
+    "postinstall": "npm run build",
     "dev": "concurrently --kill-others npm:start npm:watch",
     "start": "node server/app.js",
     "build": "rollup -c",
