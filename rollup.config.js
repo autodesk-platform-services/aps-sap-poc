@@ -4,9 +4,8 @@ import svelte from 'rollup-plugin-svelte';
 export default {
     input: 'client/main.js',
     output: {
-        format: 'iife',
-        file: 'server/wwwroot/scripts/bundle.js',
-        name: 'App'
+        format: 'es',
+        file: 'server/wwwroot/scripts/bundle.js'
     },
     plugins: [
         svelte({

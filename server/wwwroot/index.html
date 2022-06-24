@@ -7,11 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/typography.css" />
     <link rel="stylesheet" href="/stylesheets/global.css" />
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css">
+	<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
     <title>Autodesk Forge: SAP Data Warehouse Cloud Demo</title>
 </head>
 
 <body>
-    <script defer src='/scripts/bundle.js'></script>
+    <div id="header">
+        <img src="/images/forge-logo-white.png" alt="Autodesk Forge" />
+        <h>SAP Data Warehouse Cloud Demo</h>
+    </div>
+    <div id="viewer">
+    </div>
+    <div id="sidebar">
+    </div>
+    <script type="module" src='/scripts/bundle.js'></script>
 </body>
 
 </html>

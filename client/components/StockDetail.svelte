@@ -49,6 +49,7 @@
 
 <div>
     <h>
+        <!-- svelte-ignore a11y-invalid-attribute -->
         <a href="#" on:click={() => dispatch('close', {})}>Stock Overview</a> > {partNumber}
     </h>
     {#await entriesPromise}
@@ -90,7 +91,7 @@
                 {/each}
             </tbody>
         </table>
-        <h>Purchase</h>
+        <h>Order</h>
         {#await facilitiesPromise}
             <p class="info">Loading ...</p>
         {:then facilities} 
@@ -117,6 +118,7 @@
                 </tr>
             </tbody>
         </table>
+        <button id="order" disabled>Order</button>
     {:catch error}
 	    <p class="error">{error.message}</p>
     {/await}
@@ -173,5 +175,17 @@
     .totals {
         font-size: x-large;
         font-weight: 600;
+    }
+
+    #order {
+        display: block;
+        width: 100%;
+        background-color: #5f60ff;
+        border-radius: 3px;
+        color: white;
+        padding: 0.25em;
+        font-family: 'Artifakt Element';
+        font-size: x-large;
+        font-weight: 700;
     }
 </style>

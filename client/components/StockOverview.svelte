@@ -24,6 +24,7 @@
                 {#each entries as entry}
                     <tr>
                         <td>
+                            <!-- svelte-ignore a11y-invalid-attribute -->
                             <a href="#" on:click={() => dispatch('componentClicked', { id: entry.Article_ID })}>{entry.Article_ID}</a>
                         </td>
                         <td>{entry.Count}</td>

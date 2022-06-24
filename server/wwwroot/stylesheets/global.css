@@ -17,3 +17,45 @@ input, select {
     border: 1px solid darkgray;
     border-radius: 3px;
 }
+
+#header, #viewer, #sidebar {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+#header {
+    top: 0;
+    height: 3.5em;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+#header > img {
+    padding: 0 0.5em;
+    height: 30px;
+}
+
+#header > h {
+    padding: 0 0.5em;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+#viewer {
+    top: 3.5em;
+    bottom: 0;
+    left: 0;
+    width: 60vw;
+}
+
+#sidebar {
+    top: 3.5em;
+    bottom: 0;
+    right: 0;
+    width: 40vw;
+    overflow-y: scroll;
+    padding: 0 1em;
+}
