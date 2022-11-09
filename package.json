@@ -1,12 +1,11 @@
 {
-  "name": "forge-sap-poc",
+  "name": "aps-sap-poc",
   "version": "0.0.1",
-  "description": "Prototype application integrating Autodesk Forge and SAP Data Warehouse Cloud.",
+  "description": "Prototype application integrating Autodesk Platform Services and SAP Data Warehouse Cloud.",
   "author": "Petr Broz <petr.broz@autodesk.com>",
   "license": "MIT",
   "keywords": [
-    "autodesk",
-    "forge",
+    "autodesk-platform-services",
     "sap"
   ],
   "scripts": {

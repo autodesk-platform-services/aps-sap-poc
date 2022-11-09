@@ -1,7 +1,7 @@
 const { AuthenticationClient } = require('forge-server-utils');
-const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET } = require('../config.js');
+const { APS_CLIENT_ID, APS_CLIENT_SECRET } = require('../config.js');
 
-let auth = new AuthenticationClient(FORGE_CLIENT_ID, FORGE_CLIENT_SECRET);
+let auth = new AuthenticationClient(APS_CLIENT_ID, APS_CLIENT_SECRET);
 
 async function getPublicToken() {
     const result = await auth.authenticate(['viewables:read']);

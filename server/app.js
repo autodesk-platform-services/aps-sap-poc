@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
-const { getPublicToken } = require('./services/forge.js');
+const { getPublicToken } = require('./services/aps.js');
 const { getFacilities, getStockOverview, getArticleDetail, getDeliveryOptions } = require('./services/sap.js');
-const { FORGE_MODEL_URN, PORT } = require('./config.js');
+const { APS_MODEL_URN, PORT } = require('./config.js');
 
 let app = express();
 app.use(express.static(path.join(__dirname, 'wwwroot')));
 app.get('/config', function (req, res) {
-    res.json({ urn: FORGE_MODEL_URN });
+    res.json({ urn: APS_MODEL_URN });
 });
 app.get('/token', async function(req, res, next) {
     try {
