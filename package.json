@@ -2,7 +2,6 @@
   "name": "aps-sap-poc",
   "version": "0.0.1",
   "description": "Prototype application integrating Autodesk Platform Services and SAP Data Warehouse Cloud.",
-  "author": "Petr Broz <petr.broz@autodesk.com>",
   "license": "MIT",
   "keywords": [
     "autodesk-platform-services",

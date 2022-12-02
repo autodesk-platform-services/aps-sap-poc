@@ -1,8 +1,8 @@
-# aps-sap-poc
+# APS/SAP Prototype
 
 Prototype application integrating [Autodesk Platform Services](https://aps.autodesk.com) and SAP Data Warehouse Cloud.
 
-![Screenshot](./screenshot.png)
+![Screenshot](./thumbnail.png)
 
 ## Can I run it locally?
 
