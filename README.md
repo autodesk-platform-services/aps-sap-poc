@@ -2,7 +2,7 @@
 
 Prototype application integrating [Autodesk Platform Services](https://aps.autodesk.com) and SAP Data Warehouse Cloud.
 
-![Screenshot](./thumbnail.png)
+![thumbnail](./thumbnail.png)
 
 ## Can I run it locally?
 
