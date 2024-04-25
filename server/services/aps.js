@@ -1,11 +1,13 @@
-const { AuthenticationClient } = require('forge-server-utils');
+const { SdkManagerBuilder } = require('@aps_sdk/autodesk-sdkmanager');
+const { AuthenticationClient, Scopes } = require('@aps_sdk/authentication');
 const { APS_CLIENT_ID, APS_CLIENT_SECRET } = require('../config.js');
 
-let auth = new AuthenticationClient(APS_CLIENT_ID, APS_CLIENT_SECRET);
+const sdkManager = SdkManagerBuilder.create().build();
+const auth = new AuthenticationClient(sdkManager);
 
 async function getPublicToken() {
-    const result = await auth.authenticate(['viewables:read']);
-    return result;
+    const credentials = await auth.getTwoLeggedToken(APS_CLIENT_ID, APS_CLIENT_SECRET, [Scopes.ViewablesRead]);
+    return credentials;
 }
 
 module.exports = {
